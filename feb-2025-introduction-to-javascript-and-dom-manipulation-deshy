@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic JavaScript Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1 id="main-heading">Welcome to My Website</h1>
+    </header>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#container {
+    margin-top: 20px;
+}
+    <section>
+        <p id="text">This is a dynamic paragraph.</p>
+        <button id="changeTextBtn">Change Text</button>
+    </section>
+
+    <section>
+        <button id="toggleElementBtn">Add/Remove Element</button>
+        <div id="container"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+// Change text dynamically
+document.getElementById("changeTextBtn").addEventListener("click", function () {
+    document.getElementById("text").textContent = "The text has been changed dynamically!";
+});
+
+// Modify CSS styles via JavaScript
+document.getElementById("main-heading").style.color = "blue";
+document.getElementById("main-heading").style.fontSize = "24px";
+
+// Add or remove an element when a button is clicked
+document.getElementById("toggleElementBtn").addEventListener("click", function () {
+    let container = document.getElementById("container");
+    let existingElement = document.getElementById("dynamicElement");
+
+    if (existingElement) {
+        container.removeChild(existingElement);
+    } else {
+        let newElement = document.createElement("p");
+        newElement.id = "dynamicElement";
+        newElement.textContent = "This is a newly added element!";
+        container.appendChild(newElement);
+    }
+});
+
+
